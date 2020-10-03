@@ -26,7 +26,8 @@ namespace AddressBookSystem
         }
         public void print()
         {
-            foreach(Contact contact in contactList)
+            Console.WriteLine("Printing contacts in AddressBook ->");
+            foreach (Contact contact in contactList)
             {
                 Console.WriteLine("FirstName: " + contact.fistName);
                 Console.WriteLine("LastName: " + contact.lastName);
