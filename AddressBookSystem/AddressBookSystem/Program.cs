@@ -1,14 +1,18 @@
-﻿using System;
-
-namespace AddressBookSystem
+﻿namespace AddressBookSystem
 {
+    using System;
     class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Address Book Program in AddressBookMain class on START Master Branch");
             AddressBook addressBook = new AddressBook();
-            takeInputAndAddToContacts(addressBook);
-            takeInputAndAddToContacts(addressBook);
+            Console.WriteLine("Enter how many contacts you want to add");
+            int number= Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= number; i++)
+            {
+                takeInputAndAddToContacts(addressBook);
+            }
             addressBook.print();
             Console.WriteLine("Enter FirstName of Contact to be edited");
             string firstNameOfContactToBeEdited = Console.ReadLine();
