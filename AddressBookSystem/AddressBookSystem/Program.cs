@@ -15,6 +15,12 @@ namespace AddressBookSystem
             Console.WriteLine("Enter LastName of Contact to be edited");
             string lastNameOfContactToBeEdited = Console.ReadLine();
             addressBook.edit(firstNameOfContactToBeEdited, lastNameOfContactToBeEdited);
+            Console.WriteLine("Enter FirstName of Contact to be deleted");
+            string firstNameOfContactToBeDeleted = Console.ReadLine();
+            Console.WriteLine("Enter LastName of Contact to be deleted");
+            string lastNameOfContactToBeDeleted = Console.ReadLine();
+            addressBook.delete(firstNameOfContactToBeDeleted, lastNameOfContactToBeDeleted);
+            addressBook.print();
         }
         public static void takeInputAndAddToContacts(AddressBook addressBook)
         {
