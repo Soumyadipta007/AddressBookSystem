@@ -26,6 +26,11 @@
         public void print()
         {
             Console.WriteLine("Printing contacts in AddressBook ->");
+            if (this.contactList.Count == 0)
+            {
+                Console.WriteLine("No contacts");
+                return;
+            }                        
             foreach (Contact contact in this.contactList)
             {
                 Console.WriteLine("FirstName: " + contact.fistName);
