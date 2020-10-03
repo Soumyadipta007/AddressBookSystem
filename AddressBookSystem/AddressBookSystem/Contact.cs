@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AddressBookSystem
+﻿namespace AddressBookSystem
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
     class Contact
     {
         public string fistName { get; set; }

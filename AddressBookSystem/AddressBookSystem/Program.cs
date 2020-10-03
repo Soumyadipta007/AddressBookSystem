@@ -10,6 +10,11 @@ namespace AddressBookSystem
             takeInputAndAddToContacts(addressBook);
             takeInputAndAddToContacts(addressBook);
             addressBook.print();
+            Console.WriteLine("Enter FirstName of Contact to be edited");
+            string firstNameOfContactToBeEdited = Console.ReadLine();
+            Console.WriteLine("Enter LastName of Contact to be edited");
+            string lastNameOfContactToBeEdited = Console.ReadLine();
+            addressBook.edit(firstNameOfContactToBeEdited, lastNameOfContactToBeEdited);
         }
         public static void takeInputAndAddToContacts(AddressBook addressBook)
         {
