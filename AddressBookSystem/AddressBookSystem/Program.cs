@@ -19,49 +19,50 @@
                 AddressBook addressBook = new AddressBook();
                 addressBookDict.Add(addressBookName, addressBook);
             }
-            Console.WriteLine("Enter Address Book name where you want to add contacts");
-            string addContactInAddressBook = Console.ReadLine();
-            Console.WriteLine("Enter how many contacts you want to add");
-            int number = Convert.ToInt32(Console.ReadLine());
-            for (int i = 1; i <= number; i++)
-            {
-                takeInputAndAddToContacts(addressBookDict[addContactInAddressBook]);
-            }
-            addressBookDict[addContactInAddressBook].print();
-            //Console.WriteLine("Enter Address Book name where you want to edit contact");
-            //string editContactInAddressBook = Console.ReadLine();
-            //Console.WriteLine("Enter FirstName of Contact to be edited");
-            //string firstNameOfContactToBeEdited = Console.ReadLine();
-            //Console.WriteLine("Enter LastName of Contact to be edited");
-            //string lastNameOfContactToBeEdited = Console.ReadLine();
-            //addressBookDict[editContactInAddressBook].edit(firstNameOfContactToBeEdited, lastNameOfContactToBeEdited);
-            //Console.WriteLine("Enter Address Book name where you want to delete contact");
-            //string deleteContactInAddressBook = Console.ReadLine();
-            //Console.WriteLine("Enter FirstName of Contact to be deleted");
-            //string firstNameOfContactToBeDeleted = Console.ReadLine();
-            //Console.WriteLine("Enter LastName of Contact to be deleted");
-            //string lastNameOfContactToBeDeleted = Console.ReadLine();
-            //addressBookDict[deleteContactInAddressBook].delete(firstNameOfContactToBeDeleted, lastNameOfContactToBeDeleted);
-            //addressBookDict[deleteContactInAddressBook].print();
-            Console.WriteLine("Enter the city or state where you want to find the persons");
-            String findPlace = Console.ReadLine();
-            List<String> listOfPersonsinPlace = new List<string>();
             foreach (var element in addressBookDict)
             {
-                listOfPersonsinPlace = element.Value.findPersons(findPlace);
-            }
-            if (listOfPersonsinPlace.Count==0)
-            {
-                Console.WriteLine("No Person in that city/state");
-            }
-            else
-            {
-                Console.WriteLine("Persons in that city/state :-");
-                foreach (var name in listOfPersonsinPlace)
+                Console.WriteLine("Enter how many contacts you want to add in address book " + element.Key);
+                int number = Convert.ToInt32(Console.ReadLine());
+                for (int i = 1; i <= number; i++)
                 {
-                    Console.WriteLine(name);
+                    takeInputAndAddToContacts(element.Value);
                 }
+                element.Value.print();
             }
+            Console.WriteLine("Enter Address Book name where you want to edit contact");
+            string editContactInAddressBook = Console.ReadLine();
+            Console.WriteLine("Enter FirstName of Contact to be edited");
+            string firstNameOfContactToBeEdited = Console.ReadLine();
+            Console.WriteLine("Enter LastName of Contact to be edited");
+            string lastNameOfContactToBeEdited = Console.ReadLine();
+            addressBookDict[editContactInAddressBook].edit(firstNameOfContactToBeEdited, lastNameOfContactToBeEdited);
+            addressBookDict[editContactInAddressBook].print();
+            Console.WriteLine("Enter Address Book name where you want to delete contact");
+            string deleteContactInAddressBook = Console.ReadLine();
+            Console.WriteLine("Enter FirstName of Contact to be deleted");
+            string firstNameOfContactToBeDeleted = Console.ReadLine();
+            Console.WriteLine("Enter LastName of Contact to be deleted");
+            string lastNameOfContactToBeDeleted = Console.ReadLine();
+            addressBookDict[deleteContactInAddressBook].delete(firstNameOfContactToBeDeleted, lastNameOfContactToBeDeleted);
+            addressBookDict[deleteContactInAddressBook].print();
+            Console.WriteLine("Enter the city or state where you want to find the persons");
+            String findPlace = Console.ReadLine();
+            foreach (var element in addressBookDict)
+            {
+                List<String> listOfPersonsinPlace = element.Value.findPersons(findPlace);
+                if (listOfPersonsinPlace.Count == 0)
+                {
+                    Console.WriteLine("No Person in that city/state for address book " + element.Key);
+                }
+                else
+                {
+                    Console.WriteLine("Persons in that city/state for address book " + element.Key + " :-");
+                    foreach (var name in listOfPersonsinPlace)
+                    {
+                        Console.WriteLine(name);
+                    }
+                }
+            }            
             }
         public static void takeInputAndAddToContacts(AddressBook addressBook)
         {
