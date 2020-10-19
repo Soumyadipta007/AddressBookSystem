@@ -164,7 +164,7 @@ namespace AddressBookSystem
             else
                 Console.WriteLine("Deletion Done.");
         }
-        public List<String> findPersons(string place)
+        public List<String> findPersonsInCity(string place)
         {
             List<String> personsFounded = new List<string>();
             foreach (Contact contact in contactList.FindAll(e => (e.city.Equals(place))).ToList())
@@ -180,6 +180,16 @@ namespace AddressBookSystem
                     personsFounded.Add(name);
                 }
             }
+            return personsFounded;
+        }
+        public List<String> findPersonsInState(string place)
+        {
+            List<String> personsFounded = new List<string>();            
+            foreach (Contact contact in contactList.FindAll(e => (e.state.Equals(place))).ToList())
+            {
+                string name = contact.firstName + " " + contact.lastName;
+                personsFounded.Add(name);
+            }        
             return personsFounded;
         }
     }
