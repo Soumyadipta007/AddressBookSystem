@@ -52,12 +52,15 @@
             String findPlace = Console.ReadLine();            
             Dictionary<string, List<string>> dictionaryCity = new Dictionary<string, List<string>>();
             Dictionary<string, List<string>> dictionaryState = new Dictionary<string, List<string>>();
+            int countOfPersonsInCity = 0;
+            int countOfPersonsInState = 0;
             foreach (var element in addressBookDict)
             {
                 List<String> listOfPersonsinPlace=new List<string>();
                 if (place.Equals("c"))
                 {
                     listOfPersonsinPlace = element.Value.findPersonsInCity(findPlace);
+                    countOfPersonsInCity += element.Value.findNumberOfPersonsInCity(findPlace);
                     foreach (var name in listOfPersonsinPlace)
                     {
                         if (!dictionaryCity.ContainsKey(findPlace))
@@ -73,6 +76,7 @@
                 else
                 {
                     listOfPersonsinPlace = element.Value.findPersonsInState(findPlace);
+                    countOfPersonsInState += element.Value.findNumberOfPersonsInState(findPlace);
                     foreach (var name in listOfPersonsinPlace)
                     {
                         if (!dictionaryState.ContainsKey(findPlace))
@@ -88,6 +92,7 @@
             }
             if (dictionaryCity.Count != 0)
             {
+                Console.WriteLine("Number of persons in the city = " + countOfPersonsInCity);
                 Console.WriteLine("Persons in the city :-");
                 foreach (var mapElement in dictionaryCity)
                 {
@@ -99,6 +104,7 @@
             }
             else
             {
+                Console.WriteLine("Number of persons in the state = " + countOfPersonsInState);
                 Console.WriteLine("Persons in the state :-");
                 foreach (var mapElement in dictionaryState)
                 {

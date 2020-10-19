@@ -166,31 +166,33 @@ namespace AddressBookSystem
         }
         public List<String> findPersonsInCity(string place)
         {
-            List<String> personsFounded = new List<string>();
+            List<String> personsFound = new List<string>();
             foreach (Contact contact in contactList.FindAll(e => (e.city.Equals(place))).ToList())
             {
                 string name = contact.firstName + " " + contact.lastName;
-                personsFounded.Add(name);
+                personsFound.Add(name);
             }
-            if (personsFounded.Count==0)
-            {
-                foreach (Contact contact in contactList.FindAll(e => (e.state.Equals(place))).ToList())
-                {
-                    string name = contact.firstName + " " + contact.lastName;
-                    personsFounded.Add(name);
-                }
-            }
-            return personsFounded;
+            return personsFound;
         }
         public List<String> findPersonsInState(string place)
         {
-            List<String> personsFounded = new List<string>();            
+            List<String> personsFound = new List<string>();            
             foreach (Contact contact in contactList.FindAll(e => (e.state.Equals(place))).ToList())
             {
                 string name = contact.firstName + " " + contact.lastName;
-                personsFounded.Add(name);
+                personsFound.Add(name);
             }        
-            return personsFounded;
+            return personsFound;
+        }
+        public int findNumberOfPersonsInCity(string place)
+        {
+            int numberOfPersonsFound = contactList.FindAll(e => (e.city.Equals(place))).Count;
+            return numberOfPersonsFound;
+        }
+        public int findNumberOfPersonsInState(string place)
+        {
+            int numberOfPersonsFound = contactList.FindAll(e => (e.state.Equals(place))).Count;
+            return numberOfPersonsFound;
         }
     }
 }
