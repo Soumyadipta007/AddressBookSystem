@@ -5,7 +5,7 @@
     using System.Text;
     class Contact
     {
-        public string fistName { get; set; }
+        public string firstName { get; set; }
         public string lastName { get; set; }
         public string address { get; set; }
         public string city { get; set; }
