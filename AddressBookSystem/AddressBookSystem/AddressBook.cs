@@ -1,9 +1,10 @@
-﻿namespace AddressBookSystem
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace AddressBookSystem
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     class AddressBook
     {
         private List<Contact> contactList;
@@ -162,6 +163,24 @@
                 Console.WriteLine("No such contact exists");
             else
                 Console.WriteLine("Deletion Done.");
+        }
+        public List<String> findPersons(string place)
+        {
+            List<String> personsFounded = new List<string>();
+            foreach (Contact contact in contactList.FindAll(e => (e.city.Equals(place))).ToList())
+            {
+                string name = contact.firstName + " " + contact.lastName;
+                personsFounded.Add(name);
+            }
+            if (personsFounded.Count==0)
+            {
+                foreach (Contact contact in contactList.FindAll(e => (e.state.Equals(place))).ToList())
+                {
+                    string name = contact.firstName + " " + contact.lastName;
+                    personsFounded.Add(name);
+                }
+            }
+            return personsFounded;
         }
     }
 }
