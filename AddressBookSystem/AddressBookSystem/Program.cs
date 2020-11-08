@@ -114,6 +114,10 @@
                     }
                 }
             }
+            Console.WriteLine("Enter the name of address book ");
+            string addressBName = Console.ReadLine();
+            addressBookDict[addressBName].AlphabeticallyArrange(); ;
+
         }
         public static void takeInputAndAddToContacts(AddressBook addressBook)
         {
