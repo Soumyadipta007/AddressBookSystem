@@ -119,6 +119,8 @@
             Console.WriteLine("Writing contacts in file");
             ReadWrite.WriteUsingStreamWriter(addressBookDict[read_write].contactList);
             ReadWrite.ReadFromStreamReader();
+            ReadWrite.ImplementCSVDataHandling();
+            ReadWrite.WriteCSVFile(addressBookDict[read_write].contactList);
         }
         public static void takeInputAndAddToContacts(AddressBook addressBook)
         {
