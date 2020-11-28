@@ -7,7 +7,7 @@ namespace AddressBookSystem
 {
     class AddressBook
     {
-        private List<Contact> contactList;
+        public List<Contact> contactList;
         public AddressBook()
         {
             this.contactList = new List<Contact>();

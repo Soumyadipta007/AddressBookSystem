@@ -114,6 +114,11 @@
                     }
                 }
             }
+            Console.WriteLine("Enter Address Book name which you want to read/write");
+            string read_write = Console.ReadLine();
+            Console.WriteLine("Writing contacts in file");
+            ReadWrite.WriteUsingStreamWriter(addressBookDict[read_write].contactList);
+            ReadWrite.ReadFromStreamReader();
         }
         public static void takeInputAndAddToContacts(AddressBook addressBook)
         {
