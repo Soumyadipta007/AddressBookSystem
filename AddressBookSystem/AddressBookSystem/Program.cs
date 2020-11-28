@@ -8,7 +8,7 @@
     {
         static void Main(string[] args)
         {            
-            Console.WriteLine("Welcome to Address Book Program in AddressBookMain class on START Master Branch");
+            Console.WriteLine("Welcome to Address Book Program in AddressBookMain class on START Master Branch.");
             Dictionary<string, AddressBook> addressBookDict = new Dictionary<string, AddressBook>();
             Console.WriteLine("How many address Book you want to add");
             int numAddressBook = Convert.ToInt32(Console.ReadLine()); 
